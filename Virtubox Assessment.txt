@@ -1,0 +1,78 @@
+Full Name: Anmol
+Email ID: anmol.tomar.cse.2023@miet.ac.in
+Contact Number: 8923637920
+
+TEST CASE DESIGN
+
+1. Registration Test Cases
+TC ID   Scenario                Steps                           Expected Result
+REG-01  Valid Registration      Enter valid name, email, password   Account created successfully
+REG-02  Empty Name              Leave name blank                Validation error displayed
+REG-03  Empty Email             Leave email blank                Validation error displayed
+REG-04  Invalid Email           Enter abc.com                    Error message shown
+REG-05  Empty Password          Leave password blank             Error message shown
+REG-06  Weak Password           Enter 12345                      Password strength error
+REG-07  Existing Email          Register using existing email    Duplicate account error
+
+
+2. Login Test Cases
+TC ID   Scenario                Steps                           Expected Result
+LOG-01  Valid Login             Correct email and password       Login successful
+LOG-02  Invalid Password        Correct email, wrong password    Error message
+LOG-03  Invalid Email           Wrong email                      Error message
+LOG-04  Empty Email             Leave email blank                Validation error
+LOG-05  Empty Password          Leave password blank             Validation error
+LOG-06  SQL Injection           Enter ' OR 1=1 --                Login blocked
+LOG-07  Case Sensitivity        Different email case             Expected behavior
+LOG-08  Session Check           Login then refresh page          Session remains active
+
+3. Create Task Test Cases
+TC ID    Scenario                Steps                    Expected Result
+TASK-01  Create Valid Task       Enter valid task details Task created
+TASK-02  Empty Task Name         Leave title blank        Validation error
+TASK-03  Long Task Name          Enter 500 characters     Validation handled
+TASK-04  Special Characters      Add symbols              Task saved correctly
+TASK-05  Duplicate Task          Create same task twice   System behavior verified
+
+4. View Task List Test Cases
+TC ID    Scenario         Steps                Expected Result
+VIEW-01  View Tasks       Open task list       Tasks displayed
+VIEW-02  No Tasks         Open empty list      No records message
+VIEW-03  Large Data       100+ tasks           Proper loading
+VIEW-04  Refresh Page     Reload page          Data persists
+
+5. Edit Task Test Cases
+TC ID    Scenario           Steps               Expected Result
+EDIT-01  Edit Existing Task Update title         Changes saved
+EDIT-02  Empty Title        Remove title         Validation error
+EDIT-03  Edit Long Text     Add large text       Saved correctly
+EDIT-04  Cancel Update      Click cancel         No changes saved
+
+6. Delete Task Test Cases
+TC ID   Scenario                Steps                Expected Result
+DEL-01  Delete Task             Delete existing task Task removed
+DEL-02  Confirmation Popup      Click delete         Confirmation shown
+DEL-03  Cancel Delete           Click cancel         Task remains
+DEL-04  Deleted Task Refresh    Refresh page         Task not displayed
+
+
+BUG IDENTIFICATION / RISK ANALYSIS
+
+Bug ID  Description                             Severity  Impact
+BUG-01  Duplicate registration allowed          Major     Multiple accounts with same email
+BUG-02  Weak password accepted                  Major     Security risk
+BUG-03  SQL Injection vulnerability             Critical  Database compromise
+BUG-04  User accesses tasks without login       Critical  Unauthorized access
+BUG-05  Deleted task still visible after refresh Major    Data inconsistency
+BUG-06  Edit operation not saving changes       Major     Data loss
+BUG-07  Application crashes on blank input      Major     Poor user experience
+BUG-08  Session does not expire after logout    Critical  Security issue
+BUG-09  Duplicate task records created          Minor     Data duplication
+BUG-10  Slow loading with large task list       Minor     Performance issue
+
+
+Conclusion
+The Task Management Application should be tested thoroughly for Registration, Login, Task
+CRUD operations, Validation, Security, Error Handling, and Performance before production
+release. The above test cases cover positive, negative, and edge-case scenarios and help
+ensure application quality and reliability.
